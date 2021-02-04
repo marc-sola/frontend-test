@@ -13,11 +13,11 @@ export class BeersEffects {
               private beersService: BeersService) {
   }
 
-  @Effect() fetchBeers = this.actions$
+  /*@Effect() fetchBeers = this.actions$
     .pipe(
       ofType(FETCH_BEERS_REQUEST),
       switchMap(() => this.beersService.getBeers()),
       map((res) => fetchBeersListResponse(res)),
       catchError(() => of(fetchBeersListFailed()))
-    );
+    );*/
 }

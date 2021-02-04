@@ -33,9 +33,19 @@ describe('BeersService', () => {
     it ('should call to get method with specific url', () => {
       spyOn(http, 'get').and.callThrough();
 
-      beersService.getBeers();
+      beersService.getBeers(1, 20);
 
-      expect(http.get).toHaveBeenCalledWith('https://api.punkapi.com/v2/beers');
-    })
-  })
+      expect(http.get).toHaveBeenCalledWith('https://api.punkapi.com/v2/beers?page=1&per_page=20');
+    });
+  });
+
+  describe('getBeer', () => {
+    it ('should call to get method with specific url', () => {
+      spyOn(http, 'get').and.callThrough();
+
+      beersService.getBeer(1);
+
+      expect(http.get).toHaveBeenCalledWith('https://api.punkapi.com/v2/beers/1');
+    });
+  });
 });

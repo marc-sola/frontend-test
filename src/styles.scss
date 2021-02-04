@@ -1,3 +1,20 @@
 body {
   background: #399bab;
+  font-family: Helvetica;
+}
+
+@mixin card($selectable: false) {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 30px 30px 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+  @if $selectable {
+    cursor: pointer;
+    transition: box-shadow 400ms;
+
+    &:hover {
+      box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
 }

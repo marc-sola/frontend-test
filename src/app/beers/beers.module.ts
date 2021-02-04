@@ -9,6 +9,8 @@ import { beersReducers } from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { BeersEffects } from './store/beers.effects';
 import { BeersService } from './beers.service';
+import { BeerListItemComponent } from './beer-list/beer-list-item/beer-list-item.component';
+import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { BeersService } from './beers.service';
     EffectsModule.forFeature([BeersEffects])
   ],
   declarations: [
-    BeerListComponent
+    BeerListComponent,
+    BeerListItemComponent,
+    BeerDetailComponent
   ],
   providers: [
     BeersService
