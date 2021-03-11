@@ -1,0 +1,8 @@
+<div *ngIf="beer" [routerLink]="beer.id" class="beer-item">
+  <h1 class="beer-item-name">{{beer.name}}</h1>
+  <img [src]="beer.image_url" class="beer-item-img">
+  <div class="beer-item-tagline">{{beer.tagline}}</div>
+</div>
+<div *ngIf="!beer" class="beer-item">
+  <h2>Loading...</h2>
+</div>

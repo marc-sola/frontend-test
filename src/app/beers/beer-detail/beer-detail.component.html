@@ -1,0 +1,24 @@
+<div class="navigation">
+  <div class="back-button">
+    <span [routerLink]="['..']" class="nav-button">To list</span>
+  </div>
+  <div class="nav-buttons" *ngIf="beer">
+      <span *ngIf="beer.id > 1" (click)="previous()" class="nav-button">< Previous</span>
+      <span (click)="next()" class="nav-button">Next ></span>
+  </div>
+</div>
+
+<div class="beer-detail-item" *ngIf="beer; else loading">
+  <div class="beer-detail-img">
+    <img [src]="beer.image_url">
+  </div>
+  <div class="beer-detail-text">
+    <h1 class="beer-detail-name">{{beer.name}}</h1>
+    <div class="beer-detail-description">{{beer.description}}</div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="beer-detail-item">
+    <h3>Loading...</h3>
+  </div>
+</ng-template>

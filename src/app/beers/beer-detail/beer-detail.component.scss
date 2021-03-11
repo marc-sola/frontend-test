@@ -1,0 +1,64 @@
+@import "src/styles.scss";
+$media-breakout: 700px;
+
+
+:host {
+
+  .beer-detail-item {
+    @include card();
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    padding: 50px 60px;
+
+    @media screen and (max-width: $media-breakout) {
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      padding: 50px 30px;
+    }
+  }
+
+  .beer-detail-img {
+    img {
+      max-height: 500px;
+    }
+  }
+
+  .beer-detail-text {
+    padding-left: 40px;
+
+    .beer-detail-description {
+      padding-top: 20px;
+    }
+
+    @media screen and (max-width: $media-breakout) {
+      text-align: center;
+      padding-left: 0px;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px;
+    @media screen and (max-width: $media-breakout) {
+      margin: 30px 20px;
+    }
+
+    .nav-button {
+      @include card(true);
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav-buttons > .nav-button:last-of-type {
+      margin-left: 10px;
+    }
+
+  }
+
+
+}
