@@ -1,4 +1,5 @@
 <div *ngIf="(beers$ | async) as beers; else loading" class="beer-list">
+  <app-beer-search (searchUpdated)="onSearchUpdated($event)"></app-beer-search>
   <div *ngFor="let beer of beers" class="beer-list-item">
     <app-beer-list-item [beer]="beer"></app-beer-list-item>
   </div>

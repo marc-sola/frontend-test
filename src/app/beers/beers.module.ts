@@ -11,6 +11,8 @@ import { BeersEffects } from './store/beers.effects';
 import { BeersService } from './beers.service';
 import { BeerListItemComponent } from './beer-list/beer-list-item/beer-list-item.component';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
+import { BeerSearchComponent } from './beer-list/beer-search/beer-search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -18,12 +20,14 @@ import { BeerDetailComponent } from './beer-detail/beer-detail.component';
     HttpClientModule,
     RouterModule.forChild(BeersRouting),
     StoreModule.forFeature('drinks', beersReducers),
-    EffectsModule.forFeature([BeersEffects])
+    EffectsModule.forFeature([BeersEffects]),
+    ReactiveFormsModule
   ],
   declarations: [
     BeerListComponent,
     BeerListItemComponent,
-    BeerDetailComponent
+    BeerDetailComponent,
+    BeerSearchComponent
   ],
   providers: [
     BeersService
