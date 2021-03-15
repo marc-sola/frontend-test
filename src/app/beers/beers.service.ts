@@ -13,10 +13,14 @@ export class BeersService {
 
   constructor(private http: HttpClient) {}
 
-  getBeers(page: number, itemsPerPage: number) {
-    const params = new HttpParams()
+  getBeers(searchParam: string, page: number, itemsPerPage: number) {
+    let params = new HttpParams()
       .set('page', page.toString())
       .set('per_page', itemsPerPage.toString());
+
+    if (searchParam) {
+      params = params.append('beer_name', searchParam);
+    }
     return this.http.get<BeerModel[]>(this.BEERS_URL, {params});
   }
 

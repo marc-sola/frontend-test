@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from '../beers.service';
 import { BeerModel } from '../beer.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-beer-list',
@@ -10,12 +9,21 @@ import { Observable } from 'rxjs';
 })
 export class BeerListComponent implements OnInit {
 
-  private beers$: Observable<BeerModel[]>;
+  public beers: BeerModel[];
 
   constructor(private beersService: BeersService) { }
 
   ngOnInit() {
-    this.beers$ = this.beersService.getBeers(1, 20);
+    this.beersService.getBeers('', 1, 20).subscribe( (beers: BeerModel[]) =>
+      this.beers = beers
+    );
+  }
+
+  onSearchUpdated(searchParam: string) {
+    this.beersService.getBeers(searchParam, 1, 20).subscribe( (beers: BeerModel[]) => {
+        this.beers = beers;
+      }
+    );
   }
 
 }
